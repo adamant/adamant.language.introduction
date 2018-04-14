@@ -14,9 +14,7 @@ Adamant is a new language that is under development. It will be a general-purpos
 
 ## Purpose
 
-This document serves as both an informal specification of the language by covering all features of the language but not formally defining it. At the same time, it should serve as an introduction to the language for programmers who are already familiar with another language like C#, Java or Rust.
-
-If you are already very comfortable with computer programming and just want to see what set Adamant apart from other languages, continue on to the next section for a brief summary of some of the unique features of Adamant. If you'd like to simply learn Adamant. Feel free to skip ahead to the section on the language, [Variable Bindings](variable-bindings.md).
+This book is an introduction to programming in Adamant. It assumes some knowledge of programming, but makes no assumptions about what language(s) you have programmed in before.
 
 ## Unique Features
 
@@ -30,18 +28,20 @@ Adamant takes a very different approach to memory management than other high-lev
 
 Adamant has checked exceptions similar to Java or C++. However, unlike either of those languages, but default the exceptions thrown by a function are automatically inferred. Only on externally exposed APIs are exception specifications required.
 
-    // Throws clause is required because this functions is publicly exposed
-    public Function1() -> void
-        throws exception
-    {
-        Function2();
-    }
+```adamant
+// Throws clause is required because this functions is publicly exposed
+public Function1() -> void
+    throws exception
+{
+    Function2();
+}
 
-    // Throws clause is inferred because it is omitted and this is an internal function
-    internal Function2() -> void
-    {
-        throw new exception();
-    }
+// Throws clause is inferred because it is omitted and this is an internal function
+internal Function2() -> void
+{
+    throw new exception();
+}
+```
 
 For more information see [Exceptions](exceptions.md).
 
@@ -49,9 +49,11 @@ For more information see [Exceptions](exceptions.md).
 
 In many languages there is a distinction between an interface or trait that has no implementation and a class which can have implementation. Adamant doesn't have separate interfaces. Instead, any class can implement the implicitly defined interface of another class. In a class declaration, the base class appears after the first colon and classes whose interface is being implemented appear after the second colon.
 
-    public class MyClass: BaseClass : ClassAsInterface1, ClassAsInterface2
-    {
-    }
+```adamant
+public class MyClass: BaseClass : ClassAsInterface1, ClassAsInterface2
+{
+}
+```
 
 This simplifies the type hierarchy and eliminates the practice often needed in C# and Java of defining a matching interface for most classes. The feature also necessitates several of Adamant's other unique features. Members declared private are accessible only from the same instance, not by other instances of the same class. Public fields can be overridden by properties in subclasses, so there is no need to declare properties for every field. For more information see [Interfaces](traits.md).
 
@@ -91,16 +93,16 @@ The `..` operator is the accept operator used to accept visitors following the v
 
 This section lists features Adamant shares with other languages that are less common, but still contribute to the distinctive flavor of the Adamant language.
 
- * Type Inference on Local variable declarations
- * Diverging Functions
- * A Specific Infinite Loop Keyword
- * All `for` loops are iterator based
- * Iterator performance often optimizes down to a C style for loops
- * Operator Overloading
- * Object Literals - allows creation of single instance of anonymous type
- * Classes can be extended with additional methods in separate libraries
- * Partial Classes - supports code generation
- * Both reference and value types
- * C# style generators with `yield` keyword
- * `unsafe` code blocks and low level language features like raw pointers
- * C interop
+* Type Inference on Local variable declarations
+* Diverging Functions
+* A Specific Infinite Loop Keyword
+* All `for` loops are iterator based
+* Iterator performance often optimizes down to a C style for loops
+* Operator Overloading
+* Object Literals - allows creation of single instance of anonymous type
+* Classes can be extended with additional methods in separate libraries
+* Partial Classes - supports code generation
+* Both reference and value types
+* C# style generators with `yield` keyword
+* `unsafe` code blocks and low level language features like raw pointers
+* C interop

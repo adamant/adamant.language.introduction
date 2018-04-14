@@ -1,7 +1,6 @@
-# The Adamant Language: An Informal Specification and Introduction
+# An Introduction to Programming in Adamant
 
 * [Introduction](introduction.md)
-* [Implementation Road Map](roadmap.md)
 * [Variable Bindings](variable-bindings.md)
 * [Functions](functions.md)
   * [Anonymous Functions](anonymous-functions.md)
@@ -72,8 +71,3 @@
   * [Ranges](ranges.md)
   * Collections
   * Reflection
-* [Version Number Scheme](version-numbers.md)
-* [Feature Ideas](ideas.md)
-  * [Considering](ideas-considering.md)
-  * [Rejected](ideas-rejected.md)
-* [Justifications](justifications.md)
